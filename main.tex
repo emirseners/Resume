@@ -1,0 +1,237 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[top=1.2cm, bottom=2.6cm, left=1.8cm, right=2.3cm, marginparwidth=1.75cm]{geometry}
+
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{hyperref}
+
+\definecolor{darkblue}{RGB}{25,25,112}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    citecolor=darkblue
+}
+
+\renewcommand{\emph}[1]{\textbf{\fontsize{11pt}{11pt}\selectfont #1}}
+
+% Section block
+\newcommand{\sectionBlock}[2]{%
+    \noindent
+    \begin{minipage}[t]{2.7cm} % Title
+    \raggedright
+    \vspace{0pt}
+    #1
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{13.85cm} % Content
+    \raggedright
+    \vspace{0pt}
+    #2
+    \end{minipage}
+    \vspace{25pt}
+}
+
+% Section title
+\titleformat{\section}{
+  \setstretch{1.0}
+  \scshape\raggedright
+  \fontsize{12pt}{12pt}\selectfont 
+}{}{0em}{}[\vspace{-0.4em}]
+
+% Section content
+
+% Publication list
+\newcommand{\pubListStart}{\begin{enumerate}[left=0pt, itemsep=3pt]}
+\newcommand{\pubListEnd}{\end{enumerate}\vspace{-11pt}}
+
+% Award list
+\newcommand{\awardListStart}{\begin{itemize}[left=0pt, itemsep=0pt]}
+\newcommand{\awardListEnd}{\end{itemize}\vspace{-11pt}}
+
+% Skill list
+\newcommand{\skillListStart}{\begin{itemize}[leftmargin=0pt, label={}, itemsep=0pt]}
+\newcommand{\skillListEnd}{\end{itemize}\vspace{-11pt}}
+
+% Item list
+\newcommand{\itemListStart}{\begin{itemize}[itemsep=0pt]}
+\newcommand{\itemListEnd}{\end{itemize}}
+\newcommand{\myItem}[1]{
+  \item{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+
+
+% Internship information
+\newcommand{\internHeading}[2]{
+  \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}[t]{p{13.74cm}}
+      \emph{#1} \hfill #2 \\
+    \end{tabular}\vspace{-7pt}
+}
+
+% Project information
+\newcommand{\projHeading}[3]{
+  \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}[t]{p{13.74cm}}
+      \textbf{#1} \hfill \\
+      \textit{#2} \hfill #3 \\
+    \end{tabular}\vspace{2pt}
+}
+
+% --------------------  START  --------------------
+\begin{document}
+
+% -------------------- HEADING --------------------
+\begin{flushright}
+  \setstretch{0.6}
+  \item {+905394879463}  % Phone number
+  \item {senerahmetemir@gmail.com}  % E-mail address
+\end{flushright}\vspace{-45pt}
+
+\begin{flushleft}  % Replace here with your name (and identity if required)
+  {\fontsize{16pt}{16pt}\selectfont \textsc{Ahmet Emir \c{S}ener}}
+  \noindent\rule{\textwidth}{0.4pt}
+\end{flushleft}
+
+% -------------------- EDUCATION --------------------
+\sectionBlock{
+\section{Education}
+}{
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}[t]{p{13.74cm}}
+  \textbf{\href{https://bogazici.edu.tr/}{Boğaziçi University}}, İstanbul, Turkey \hfill \\
+  \textit{M.S., \href{https://ie.bogazici.edu.tr/}{Industrial Engineering}} \hfill January 2025 - Present \\
+\end{tabular}\vspace{-7pt}
+\itemListStart
+  \myItem{GPA: 3.90/4.00}
+\itemListEnd
+
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}[t]{p{13.74cm}}
+  \textit{B.S., \href{https://ie.bogazici.edu.tr/}{Industrial Engineering}} \hfill September 2021 - January 2025 \\
+\end{tabular}\vspace{-7pt}
+\itemListStart
+  \myItem{GPA: 3.64/4.00}
+\itemListEnd
+
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}[t]{p{13.74cm}}
+  \textbf{\href{https://www.uaa.k12.tr/}{Üsküdar American Academy}}, İstanbul, Turkey \hfill \\
+  \textit{High School Diploma} \hfill September 2016 - June 2021 \\
+\end{tabular}\vspace{-7pt}
+\itemListStart
+  \myItem{Sports Scholarship}
+\itemListEnd
+
+}
+
+% -------------------- REFEREED CONFERENCE PROCEEDINGS --------------------
+\sectionBlock{
+\section{Refereed Conference Proceedings}
+}{
+% \pubListStart
+% \item Author, A., Author, B. (Year). "Title of the paper." \textit{Conference Name}, Location.
+% \pubListEnd
+}
+
+% -------------------- MANUSCRIPTS --------------------
+\sectionBlock{
+\section{Manuscripts}
+}{
+ \pubListStart
+ \item \textbf{Ahmet Emir Şener} \& Burak Kocuk \& Tuğçe Yüksel (2025). A Dynamic Strategic Plan for Transition to Campus-Scale Clean Electricity Using Multi-Stage Stochastic Programming, submitted to \textit{Sustainable Energy, Grids and Networks}. \href{https://arxiv.org/abs/2506.16423}{arXiv:2506.16423}
+ \pubListEnd
+}
+
+% -------------------- WORK IN PROGRESS --------------------
+\sectionBlock{
+\section{Work in Progress}
+}{
+% \itemListStart
+% \myItem{Project title and brief description}
+% \itemListEnd
+}
+
+% -------------------- CONFERENCE TALKS --------------------
+\sectionBlock{
+\section{Conference Talks}
+}{
+\itemListStart
+\myItem{Yerleşkeler İçin Temiz Enerji Geçişi Planlamasının Çok Aşamalı Rassal Programlama İle Elde Edilmesi, YAEM 2024, Trabzon}
+\myItem{Çok Aşamalı Rassal Programlama ile Kampüs Ölçeğinde Temiz Elektriğe Geçiş İçin Dinamik Stratejik Planlama, YAEM 2025, Ankara}
+\itemListEnd
+}
+
+% -------------------- EXPERIENCE --------------------
+\sectionBlock{
+\section{Experience}
+}{
+\internHeading
+  {Icron Technologies}{August - September 2023}
+\itemListStart
+  \myItem{Developed and implemented sophisticated algorithms and functions within Icron's object-oriented system to integrate the LLM using the function call property through OpenAI API.}
+  \myItem{The primary objective was to enable clients to streamline their operational tasks by facilitating the use of string queries.}
+  \myItem{Ensured precision by meticulously addressing typos, consignificant words, and minimizing hallucination through prompt engineering techniques and validation functions.}
+  \myItem{Rigorously tested functions within Icron's client system, assuring accuracy and reliability by enhancing them.}
+  \myItem{Additionally, created a user-friendly interface and an explanatory video featuring query examples, highlighting their substantial impact on the database and GSAMS.}
+\itemListEnd
+
+\internHeading
+  {Birleşim Mühendislik}{June - September 2022}
+\itemListStart
+  \myItem{Developed and optimized surface area calculations for steel aeroducts by conducting thorough data collection and experimentation using AutoCAD within the aeroduct manufacturing environment.}
+  \myItem{Integrated the derived formulas into the ERP system, leading to increased accuracy in the production of aeroducts.}
+\itemListEnd
+
+}
+
+% -------------------- PROJECTS --------------------
+\sectionBlock{
+\section{Projects}
+}{
+\projHeading{Assessment of alternative bidding strategies in multi-actor context of the Turkish Electricity Market}{Boğaziçi University}{September 2024 - January 2025}
+\itemListStart
+  \myItem{Developing and implementing an agent-based simulation tool to model plausible price formation tendencies by simulating multi-actor bidding rounds.}
+  \myItem{Evaluating various bidding strategies across different opponent mixes by creating a "field book" and conducting scenario analyses.}
+\itemListEnd
+
+}
+
+% -------------------- SKILLS --------------------
+\sectionBlock{
+\section{Skills}
+}{
+\skillListStart
+\justifying
+\item \emph{Languages}: Turkish (Native), English (Advanced), German (Beginner).
+\item \emph{Computer}: Microsoft Office Applications, AutoCAD, Java, Python, Gurobi, R, SIMAN, Arena, AnyLogic, Vensim, NetLogo.
+\skillListEnd
+}
+
+% -------------------- ACTIVITIES --------------------
+\sectionBlock{
+\section{Activities}
+}{
+\skillListStart
+\justifying
+\item \emph{Member, Büyük, Boğaziçi University} \hfill 2021 - Present
+\item \emph{Leader, Mind Games, Üsküdar American Academy} \hfill 2019 - 2021
+\item \emph{Member, Üsküdar American Academy, Flag Football Team} \hfill 2016 - 2021
+\item \emph{Archery}: Demonstrated extensive proficiency in archery, earning 24 medals in national and Istanbul competitions, including 3 national individual gold medals and 5 Istanbul individual gold medals.
+\skillListEnd
+}
+
+\end{document}
+
