@@ -1,237 +1,239 @@
-\documentclass[a4paper, 10pt]{article}
-
-\usepackage[top=1.2cm, bottom=2.6cm, left=1.8cm, right=2.3cm, marginparwidth=1.75cm]{geometry}
-
-\usepackage{xcolor}
-\usepackage{setspace}
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{tgtermes}
+\else
+  \usepackage{fontspec}
+  \setmainfont{texgyretermes}[
+    Extension=.otf,
+    UprightFont=*-regular,
+    BoldFont=*-bold,
+    ItalicFont=*-italic,
+    BoldItalicFont=*-bolditalic
+  ]
+\fi
+\usepackage{microtype}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{tabularx}
-\usepackage{ragged2e}
-
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
-\usepackage{hyperref}
-
-\definecolor{darkblue}{RGB}{25,25,112}
+\usepackage{array}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\definecolor{linkblue}{RGB}{20,55,85}
+\usepackage[colorlinks=true,allcolors=linkblue,unicode]{hyperref}
 
 \hypersetup{
-    colorlinks=true,
-    linkcolor=darkblue,
-    urlcolor=darkblue,
-    citecolor=darkblue
+  pdftitle={Ahmet Emir Şener -- Curriculum Vitae},
+  pdfauthor={Ahmet Emir Şener},
+  pdfsubject={Academic curriculum vitae}
 }
 
-\renewcommand{\emph}[1]{\textbf{\fontsize{11pt}{11pt}\selectfont #1}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{20pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\linespread{1.03}
+\raggedright
+\setlength{\emergencystretch}{1.5em}
 
-% Section block
-\newcommand{\sectionBlock}[2]{%
-    \noindent
-    \begin{minipage}[t]{2.7cm} % Title
-    \raggedright
-    \vspace{0pt}
-    #1
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{13.85cm} % Content
-    \raggedright
-    \vspace{0pt}
-    #2
-    \end{minipage}
-    \vspace{25pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\newcommand{\cvsection}[1]{\Needspace{4\baselineskip}\section*{#1}}
+
+\setlist[itemize]{
+  leftmargin=1.2em,
+  label=\textbullet,
+  topsep=2pt,
+  itemsep=1pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+\setlist[enumerate]{
+  leftmargin=1.5em,
+  label=\arabic*.,
+  topsep=0pt,
+  itemsep=4pt,
+  parsep=0pt,
+  partopsep=0pt
 }
 
-% Section title
-\titleformat{\section}{
-  \setstretch{1.0}
-  \scshape\raggedright
-  \fontsize{12pt}{12pt}\selectfont 
-}{}{0em}{}[\vspace{-0.4em}]
-
-% Section content
-
-% Publication list
-\newcommand{\pubListStart}{\begin{enumerate}[left=0pt, itemsep=3pt]}
-\newcommand{\pubListEnd}{\end{enumerate}\vspace{-11pt}}
-
-% Award list
-\newcommand{\awardListStart}{\begin{itemize}[left=0pt, itemsep=0pt]}
-\newcommand{\awardListEnd}{\end{itemize}\vspace{-11pt}}
-
-% Skill list
-\newcommand{\skillListStart}{\begin{itemize}[leftmargin=0pt, label={}, itemsep=0pt]}
-\newcommand{\skillListEnd}{\end{itemize}\vspace{-11pt}}
-
-% Item list
-\newcommand{\itemListStart}{\begin{itemize}[itemsep=0pt]}
-\newcommand{\itemListEnd}{\end{itemize}}
-\newcommand{\myItem}[1]{
-  \item{
-    {#1 \vspace{-2pt}}
-  }
+\newcommand{\cvline}[2]{%
+  \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}X r@{}}%
+    #1 & #2 \\
+  \end{tabularx}\par
 }
+\newcommand{\cvheading}[2]{\Needspace{3\baselineskip}\cvline{#1}{#2}}
+\newcommand{\entrygap}{\par\vspace{6pt}}
 
-
-
-% Internship information
-\newcommand{\internHeading}[2]{
-  \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}[t]{p{13.74cm}}
-      \emph{#1} \hfill #2 \\
-    \end{tabular}\vspace{-7pt}
-}
-
-% Project information
-\newcommand{\projHeading}[3]{
-  \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}[t]{p{13.74cm}}
-      \textbf{#1} \hfill \\
-      \textit{#2} \hfill #3 \\
-    \end{tabular}\vspace{2pt}
-}
-
-% --------------------  START  --------------------
 \begin{document}
 
-% -------------------- HEADING --------------------
-\begin{flushright}
-  \setstretch{0.6}
-  \item {+905394879463}  % Phone number
-  \item {senerahmetemir@gmail.com}  % E-mail address
-\end{flushright}\vspace{-45pt}
+\begin{minipage}[c]{0.53\linewidth}
+  {\fontsize{16pt}{23pt}\selectfont\bfseries Ahmet Emir Şener}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.45\linewidth}
+  \raggedleft
+  \href{mailto:senerahmetemir@gmail.com}{senerahmetemir@gmail.com}\\
+  \href{https://emirseners.github.io/}{emirseners.github.io}
+\end{minipage}\par
+\vspace{6pt}
+\hrule height 0.4pt
 
-\begin{flushleft}  % Replace here with your name (and identity if required)
-  {\fontsize{16pt}{16pt}\selectfont \textsc{Ahmet Emir \c{S}ener}}
-  \noindent\rule{\textwidth}{0.4pt}
-\end{flushleft}
+\cvsection{Education}
 
-% -------------------- EDUCATION --------------------
-\sectionBlock{
-\section{Education}
-}{
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}[t]{p{13.74cm}}
-  \textbf{\href{https://bogazici.edu.tr/}{Boğaziçi University}}, İstanbul, Turkey \hfill \\
-  \textit{M.S., \href{https://ie.bogazici.edu.tr/}{Industrial Engineering}} \hfill January 2025 - Present \\
-\end{tabular}\vspace{-7pt}
-\itemListStart
-  \myItem{GPA: 3.90/4.00}
-\itemListEnd
+\cvheading{\textbf{\href{https://bogazici.edu.tr/}{Boğaziçi University}}}{İstanbul, Turkey}
+\cvheading{\textit{M.S. in Industrial Engineering} (GPA: 3.94/4.00)}{January 2025 -- Present}
+\begin{itemize}
+  \item \textbf{Thesis:} New Convex Relaxations for Global Optimization Problems in Water Networks
+  \item \textbf{Advisors:} Necati Aras and Burak Kocuk
+\end{itemize}
 
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}[t]{p{13.74cm}}
-  \textit{B.S., \href{https://ie.bogazici.edu.tr/}{Industrial Engineering}} \hfill September 2021 - January 2025 \\
-\end{tabular}\vspace{-7pt}
-\itemListStart
-  \myItem{GPA: 3.64/4.00}
-\itemListEnd
+\entrygap
+\cvheading{\textit{B.S. in Industrial Engineering} (GPA: 3.64/4.00)}{September 2021 -- January 2025}
+\begin{itemize}
+  \item \textbf{Thesis:} {\fontsize{10.5pt}{12.5pt}\selectfont Assessment of Alternative Bidding Strategies in Multi-Actor Context of the Turkish Electricity Market}
+  \item \textbf{Advisors:} Gönenç Yücel and Mustafa Gökçe Baydoğan
+\end{itemize}
 
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}[t]{p{13.74cm}}
-  \textbf{\href{https://www.uaa.k12.tr/}{Üsküdar American Academy}}, İstanbul, Turkey \hfill \\
-  \textit{High School Diploma} \hfill September 2016 - June 2021 \\
-\end{tabular}\vspace{-7pt}
-\itemListStart
-  \myItem{Sports Scholarship}
-\itemListEnd
+\entrygap
+\cvheading{\textbf{\href{https://www.uaa.k12.tr/}{Üsküdar American Academy}}}{İstanbul, Turkey}
+\cvheading{\textit{High School Diploma}}{September 2016 -- June 2021}
 
-}
+\cvsection{Academic Appointments}
 
-% -------------------- REFEREED CONFERENCE PROCEEDINGS --------------------
-\sectionBlock{
-\section{Refereed Conference Proceedings}
-}{
-% \pubListStart
-% \item Author, A., Author, B. (Year). "Title of the paper." \textit{Conference Name}, Location.
-% \pubListEnd
-}
+\cvheading{\textbf{\href{https://bogazici.edu.tr/}{Boğaziçi University}}}{İstanbul, Turkey}
+Department of Industrial Engineering\par
+\cvheading{\textit{Graduate Assistant}}{October 2026 -- Present}
 
-% -------------------- MANUSCRIPTS --------------------
-\sectionBlock{
-\section{Manuscripts}
-}{
- \pubListStart
- \item \textbf{Ahmet Emir Şener} \& Burak Kocuk \& Tuğçe Yüksel (2025). A Dynamic Strategic Plan for Transition to Campus-Scale Clean Electricity Using Multi-Stage Stochastic Programming, submitted to \textit{Sustainable Energy, Grids and Networks}. \href{https://arxiv.org/abs/2506.16423}{arXiv:2506.16423}
- \pubListEnd
-}
+\cvsection{Manuscripts}
 
-% -------------------- WORK IN PROGRESS --------------------
-\sectionBlock{
-\section{Work in Progress}
-}{
-% \itemListStart
-% \myItem{Project title and brief description}
-% \itemListEnd
-}
+\begin{enumerate}
+  \item \textbf{Ahmet Emir Şener}, Burak Kocuk, and Tuğçe Yüksel (2026).
+  Benders Decomposition with Partial Non-Anticipativity Relaxation for Multi-Stage Stochastic Clean Energy Transition Planning.
+  Submitted to \textit{European Journal of Operational Research}.
+  \href{https://arxiv.org/abs/2608.14105}{arXiv:2608.14105}.
 
-% -------------------- CONFERENCE TALKS --------------------
-\sectionBlock{
-\section{Conference Talks}
-}{
-\itemListStart
-\myItem{Yerleşkeler İçin Temiz Enerji Geçişi Planlamasının Çok Aşamalı Rassal Programlama İle Elde Edilmesi, YAEM 2024, Trabzon}
-\myItem{Çok Aşamalı Rassal Programlama ile Kampüs Ölçeğinde Temiz Elektriğe Geçiş İçin Dinamik Stratejik Planlama, YAEM 2025, Ankara}
-\itemListEnd
-}
+  \item \textbf{Ahmet Emir Şener}, Burak Kocuk, and Tuğçe Yüksel (2025).
+  A Dynamic Strategic Plan for Transition to Campus-Scale Clean Electricity Using Multi-Stage Stochastic Programming.
+  Submitted to \textit{The Energy Journal}.
+  \href{https://arxiv.org/abs/2506.16423}{arXiv:2506.16423}.
+\end{enumerate}
 
-% -------------------- EXPERIENCE --------------------
-\sectionBlock{
-\section{Experience}
-}{
-\internHeading
-  {Icron Technologies}{August - September 2023}
-\itemListStart
-  \myItem{Developed and implemented sophisticated algorithms and functions within Icron's object-oriented system to integrate the LLM using the function call property through OpenAI API.}
-  \myItem{The primary objective was to enable clients to streamline their operational tasks by facilitating the use of string queries.}
-  \myItem{Ensured precision by meticulously addressing typos, consignificant words, and minimizing hallucination through prompt engineering techniques and validation functions.}
-  \myItem{Rigorously tested functions within Icron's client system, assuring accuracy and reliability by enhancing them.}
-  \myItem{Additionally, created a user-friendly interface and an explanatory video featuring query examples, highlighting their substantial impact on the database and GSAMS.}
-\itemListEnd
+\cvsection{Refereed Conference Proceedings}
 
-\internHeading
-  {Birleşim Mühendislik}{June - September 2022}
-\itemListStart
-  \myItem{Developed and optimized surface area calculations for steel aeroducts by conducting thorough data collection and experimentation using AutoCAD within the aeroduct manufacturing environment.}
-  \myItem{Integrated the derived formulas into the ERP system, leading to increased accuracy in the production of aeroducts.}
-\itemListEnd
+\begin{enumerate}
+  \item \textbf{Ahmet Emir Şener} and Gönenç Yücel (2025).
+  \href{https://proceedings.systemdynamics.org/2025/papers/P1188.pdf}{A Dynamic Model of Workforce Management During Seasonal Epidemics}.
+  In \textit{Proceedings of the International System Dynamics Conference}, Boston, USA.
+\end{enumerate}
 
-}
 
-% -------------------- PROJECTS --------------------
-\sectionBlock{
-\section{Projects}
-}{
-\projHeading{Assessment of alternative bidding strategies in multi-actor context of the Turkish Electricity Market}{Boğaziçi University}{September 2024 - January 2025}
-\itemListStart
-  \myItem{Developing and implementing an agent-based simulation tool to model plausible price formation tendencies by simulating multi-actor bidding rounds.}
-  \myItem{Evaluating various bidding strategies across different opponent mixes by creating a "field book" and conducting scenario analyses.}
-\itemListEnd
 
-}
+\cvsection{Funded Research Experience}
 
-% -------------------- SKILLS --------------------
-\sectionBlock{
-\section{Skills}
-}{
-\skillListStart
-\justifying
-\item \emph{Languages}: Turkish (Native), English (Advanced), German (Beginner).
-\item \emph{Computer}: Microsoft Office Applications, AutoCAD, Java, Python, Gurobi, R, SIMAN, Arena, AnyLogic, Vensim, NetLogo.
-\skillListEnd
-}
+\cvheading{\textbf{\href{https://www.sabanciuniv.edu/}{Sabancı University}}}{İstanbul, Turkey}
+\textit{Research Scholar, TÜBİTAK Program 1001}\par
 
-% -------------------- ACTIVITIES --------------------
-\sectionBlock{
-\section{Activities}
-}{
-\skillListStart
-\justifying
-\item \emph{Member, Büyük, Boğaziçi University} \hfill 2021 - Present
-\item \emph{Leader, Mind Games, Üsküdar American Academy} \hfill 2019 - 2021
-\item \emph{Member, Üsküdar American Academy, Flag Football Team} \hfill 2016 - 2021
-\item \emph{Archery}: Demonstrated extensive proficiency in archery, earning 24 medals in national and Istanbul competitions, including 3 national individual gold medals and 5 Istanbul individual gold medals.
-\skillListEnd
-}
+\entrygap
+\cvheading{\href{https://sites.google.com/site/burakkocuk/1001waternetwork?authuser=0}{New Convex Relaxations for Global Optimization Problems in Water Networks}}{\hspace{1em}February 2026 -- Present}
+\begin{itemize}
+  \item Derive convex hull descriptions of hydraulic relations and propose second-order cone outer approximation methods for power cones. Implement cutting-plane algorithms to solve nonconvex mixed-integer nonlinear programs arising in water distribution network design and operation.
+\end{itemize}
+
+\entrygap
+\cvheading{\href{https://sites.google.com/site/burakkocuk/1001energytransition?authuser=0}{Strategic Planning for Transition to Next Generation Clean Energy Technologies using Multi-Stage Stochastic Programming}}{\hspace{1em}February 2024 -- February 2026}
+\begin{itemize}
+  \item Developed optimization models and solution methodologies for large-scale multi-stage stochastic mixed-integer programs to support multi-vector clean energy transition planning under technological and operational uncertainty.
+\end{itemize}
+
+
+\newpage
+
+\cvsection{Conference and Workshop Presentations}
+
+\begin{enumerate}[itemsep=6pt]
+  \item New Convex Relaxations for Global Optimization Problems in Water Networks.
+  \href{https://bilmuh.gtu.edu.tr/~dgozupek/wgt2026/}{Workshop on Graph Theory and Its Applications XIII},
+  Boğaziçi University, İstanbul, Turkey, October 2026.
+
+  \item 
+  Benders Decomposition with Partial Non-Anticipativity Relaxation for Multi-Stage Stochastic Clean Energy Transition Planning.
+  \href{https://www.yad.org.tr/tr/yaem/kongreler/}{YAEM 2026}, İstanbul Technical University, İstanbul, Turkey, July 2026.
+
+  \item 
+  A Dynamic Strategic Plan for Transition to Campus-Scale Clean Electricity Using Multi-Stage Stochastic Programming.
+  \href{https://www.yad.org.tr/tr/yaem/kongreler/}{YAEM 2025}, Gazi University, Ankara, Turkey, June 2025.
+
+  \item Clean Electricity Transition under Technology Cost and Efficiency Uncertainty for Distributed Energy Systems.
+  \href{https://www.yad.org.tr/tr/yaem/kongreler/}{YAEM 2024}, Karadeniz Technical University, Trabzon, Turkey, October 2024.
+\end{enumerate}
+
+
+
+
+\cvsection{Teaching Experience}
+
+\cvheading{\textbf{\href{https://bogazici.edu.tr/}{Boğaziçi University}}}{İstanbul, Turkey}
+Department of Industrial Engineering\par
+
+\begin{itemize}[itemsep=3pt]
+  \item \cvheading{{Graduate Teaching Assistant}}{September 2025 -- January 2026}
+
+\href{https://ie.bogazici.edu.tr/courses/ie-550\%C2\%A0dynamics-socio-economic-systems}{IE 550 -- Dynamics of Socio-Economic Systems}\par
+
+  \item \cvheading{{Undergraduate Teaching Assistant}}{September 2024 -- January 2025}
+
+\href{https://ie.bogazici.edu.tr/courses/ie-306-systems-simulation}{IE 306 -- Systems Simulation}\par
+
+\end{itemize}
+
+
+
+\cvsection{Awards and Honors}
+
+\cvheading{High Honor Degree, \href{https://bogazici.edu.tr/}{Boğaziçi University}}{January 2025}
+
+\par\vspace{1pt}
+\cvheading{University Entrance Examination, quantitative track: 929th nationwide}{July 2021}
+
+\par\vspace{1pt}
+\cvheading{Sports Scholarship, \href{https://www.uaa.k12.tr/}{Üsküdar American Academy}}{September 2018 -- June 2021}
+
+
+
+
+\cvsection{Industry Experience}
+
+\cvheading{\textbf{Doğa Ambalaj ve Etiket}}{August -- September 2024}
+\textit{Production Planning Intern}\par
+\begin{itemize}
+  \item Developed mathematical optimization models to schedule label printing jobs, accounting for order due dates, priority constraints, and sequence-dependent color changeover times.
+\end{itemize}
+
+\entrygap
+\cvheading{\textbf{Icron Technologies}}{August -- September 2023}
+\textit{Research and Development Intern}\par
+\begin{itemize}
+  \item Integrated the OpenAI API's function-calling feature into ICRON's software, enabling users to ask natural-language questions about results from mathematical optimization models built within the platform.
+\end{itemize}
+
+\entrygap
+\cvheading{\textbf{Birleşim Mühendislik}}{June -- September 2022}
+\textit{Engineering Intern}\par
+\begin{itemize}
+  \item Formulated exact and approximate functions for calculating sheet metal surface areas from steel air duct specifications and integrated these calculations into an ERP system using the AutoCAD API.
+\end{itemize}
+
+\cvsection{Skills}
+Computing: Python, R, Gurobi, CPLEX, MOSEK, Ipopt, BARON, SIMAN, AnyLogic, Vensim, \LaTeX \par
+Languages: Turkish, English
 
 \end{document}
-
